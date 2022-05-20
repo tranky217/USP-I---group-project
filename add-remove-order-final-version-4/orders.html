@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Management Dashboard</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/icons.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/index.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.2.1/dist/chart.min.js"></script>
+    <script type="text/javascript" src="Edited_Beverages.js"></script>
+    <script type="text/javascript" src="Edited_DBLoaded.js"></script>
+    <script type="text/javascript" src="editedLoader.js"></script>
+</head>
+<body>
+  <!-- <script>
+      function allowDrop(ev) {
+        ev.preventDefault();
+      }
+
+      function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+      }
+      function dragback(ev) {
+          ev.dataTransfer.setData("text", ev.target.id);
+      }
+
+      function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        var c = document.getElementById(data);
+        var copy = c.cloneNode(true);
+        ev.target.appendChild(copy);
+      }
+      </script> -->
+<div class="dashboard"><!-- Dashboard -->
+        <section class="navigation"><!-- Navigation -->
+           <a href="index.html"> <img src="logo.png" alt="InstinctHub Logo" class="logo">  </a> 
+
+            <!--div>
+               <a> <span style="cursor: pointer;" class="material-icons-outlined"> dashboard </span></a>
+
+               <a> <span style="cursor: pointer;" class="material-icons-outlined"> trending_up </span> </a>
+               <a>  <span style="cursor: pointer;"  class="material-icons-outlined"> people_alt </span></a>
+               <a>   <span style="cursor: pointer;"  class="material-icons-outlined"> insert_invitation </span> </a>
+               <a>   <span  style="cursor: pointer;" class="material-icons-outlined">settings_suggest</span></a>
+            </div> -->
+
+            <img src="assets/img/2.jpg" alt="User Image" class="user">
+
+        </section><!-- Navigation End -->
+
+        <section class="main"><!-- Main -->
+            <div class="search"><!-- Search -->
+                <form action="">
+                    <input type="text" name="search" id="searchProject" placeholder="Search Here">
+                </form>
+
+                <div class="">
+                    <!-- <span class="material-icons-outlined"> notifications </span> -->
+                    <span class="material-icons-outlined"> undo </span>
+                </div>
+            </div><!-- Search End -->
+            <h1>Table <span id="TableNo"></span> </h1>
+            <script>
+                let TableNo = localStorage.getItem("TableNo")
+                document.getElementById("TableNo").innerHTML = TableNo;
+            </script>
+
+			
+            <div id="discounts" class="title">
+                <h2>Orders                     
+                </h2>
+                <h3>Single Pay                     
+                  <span style="cursor: pointer;" onclick="undoSingle()" class="material-icons-outlined"> undo </span>
+                </h3>
+            </div>
+            
+			<div id="vipDiscounts" class="project_list">
+                
+
+            </div>
+			<script>
+                var orders=[];
+				var bill = allOrderedBeverages();
+                $(document).ready(function(){
+
+				
+                  var amount =0;
+				container = document.getElementById('vipDiscounts');
+
+                  for(i = 0; i < bill.length; i++){
+
+                    amount = amount + parseInt( bill[i].prisinklmoms)
+                    container.innerHTML+=`
+                    <div id="drag2"  data-status="finished" title="Finished Project"  draggable="true" ondragstart="drag(event)" class="col" ontouchstart="this.classList.toggle('hover');">
+                              <div class="container">
+                                <div class="front" style="background-image: url(./logo.png)">
+                                  <div class="inner">
+                                    <p> ${bill[i].namn} </p>
+                                    <span>${bill[i].namn2}</span>
+                                  </div>
+                                </div>
+                                <div class="back">
+                                  <div class="inner">
+                                    <p>Alc: ${bill[i].alkoholhalt}
+                                      <br/>
+                                      Price:${bill[i].prisinklmoms} SEK
+                                      <br/>
+                                      <br/>
+                                      <button onclick="paidOrder(${i})" class="paidButton">Paid</button>
+
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                        
+                `;
+
+
+                
+                  }
+                  document.getElementById("total").innerHTML = amount;
+
+                
+                 }); 
+
+			
+                
+
+                  </script>
+            <div class="title">
+                <script>
+                </script>
+            </div>
+           
+            <div class="project_list"><!-- Project List -->
+
+              <h3 >Group Pay                     
+                <span style="cursor: pointer;" onclick="undo()" class="material-icons-outlined"> undo </span>
+              </h3>
+
+            <h1>Amount:<span id="total"> </span> SEK <span ><button id="groupPay" onclick="groupPay()" class="paidButton" >Pay</button> </span> </h1>
+               
+        </section><!-- Main End -->
+
+      
+    </div><!-- Dashboard End-->
+
+    <script src="assets/js/script.js" > </script>
+</body>
+</html>

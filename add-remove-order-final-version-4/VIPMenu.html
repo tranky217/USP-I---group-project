@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Management Dashboard</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/icons.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/index.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.2.1/dist/chart.min.js"></script>
+  <script type="text/javascript" src="Edited_Beverages.js"></script>
+  <script type="text/javascript" src="Edited_DBLoaded.js"></script>
+  <script type="text/javascript" src="editedLoader.js"></script>
+</head>
+
+<body>
+  <script>
+    function allowDrop(ev) {
+      ev.preventDefault();
+    }
+
+    function drag(ev) {
+      ev.dataTransfer.setData("text", ev.target.id);
+    }
+    function dragback(ev) {
+      ev.dataTransfer.setData("text", ev.target.id);
+    }
+
+    //Copies dragged elements and drops them, and pushes data into array
+    var ord = [];
+    function drop(ev) {
+      ev.preventDefault();
+      var data = ev.dataTransfer.getData("text/plain");
+      console.log(data)
+      var c = document.getElementById(data).cloneNode(true);
+      ev.target.appendChild(c);
+      ord.push(data);
+      console.log(ord)
+    }
+  </script>
+  <div class="dashboard">
+    <!-- Dashboard -->
+    <section class="navigation">
+      <!-- Navigation -->
+      <img src="logo.png" alt="InstinctHub Logo" class="logo">
+
+      <!--div>
+               <a> <span style="cursor: pointer;" class="material-icons-outlined"> dashboard </span></a>
+               <a> <span style="cursor: pointer;" class="material-icons-outlined"> trending_up </span> </a>
+               <a>  <span style="cursor: pointer;"  class="material-icons-outlined"> people_alt </span></a>
+               <a>   <span style="cursor: pointer;"  class="material-icons-outlined"> insert_invitation </span> </a>
+               <a>   <span  style="cursor: pointer;" class="material-icons-outlined">settings_suggest</span></a>
+            </div>-->
+
+      <img src="assets/img/2.jpg" alt="User Image" class="user">
+
+    </section><!-- Navigation End -->
+
+    <section class="main">
+      <!-- Main -->
+      <div class="search">
+        <!-- Search -->
+        <form action="">
+          <input type="text" name="search" id="searchProject" placeholder="Search Here">
+        </form>
+
+        <div class="notification">
+          <span class="material-icons-outlined"> paid </span>
+          <h5 id="credits"> Credits: </h5>
+          <p id="credit"></p>
+        </div>
+      </div><!-- Search End -->
+      <div class="search" id=" id_lang">
+        <select name=" languages" id="lang">
+          <option value="en" id="en"></option>
+          <option value="sw" id="sw"></option>
+          <option value="gm" id="gm"></option>
+        </select>
+      </div>
+
+      <div id="discounts" class="title">
+        <h2 id="ActiveDis"></h2>
+      </div>
+
+      <div id="vipDiscounts" class="project_list">
+
+
+      </div>
+
+
+      <!--Drink menu that displays beverages with no discount-->
+      <div id="drinkmenu" class="title">
+        <h2 id="DrinkMenu"></h2>
+      </div>
+
+      <div id="drinkM" class="project_list">
+
+
+      </div>
+
+
+
+    </section><!-- Main End -->
+
+    <section class="secondary" style="height: max-content;">
+      <!-- Secondary -->
+      <div class="chart" style="height: 1000px; width: 1000px;" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <h2 id="cart"></h2>
+        <!--Order button that calls on placeOrder function-->
+        <button class="orderButton" ; onclick="addCustomerOrders(ord)" id="placeOrder"></button>
+        <!-- <canvas id="myChart" width="400" height="400"></canvas> -->
+
+      </div>
+    </section><!-- Secondary End -->
+
+  </div><!-- Dashboard End-->
+  <script src="dict.js"></script>
+  <script src="lang_VIP.js"></script>
+  <script src="assets/js/script.js"> </script>
+</body>
+
+</html>

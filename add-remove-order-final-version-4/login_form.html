@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identtity Customer</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+</head>
+
+<body>
+    <!-- modified -->
+    <div class="column" style="padding-left: 35%;">
+        <div class="field" style="margin-top: 2%; margin-left: 7%;">
+            <!-- <label class="label">Login as</label> -->
+            <div id="logo">
+                <img src="logo.png" alt="Display logo" style="height: fit-content; width: 5cm;">
+            </div>
+            <div class="control">
+                <label class="label" id="Login-as"></label>
+                <div class="select">
+                    <select name="roles" id="user">
+                        <!-- <option value="None">Login as</option> -->
+                        <!-- decide the role when login of user -->
+                        <option value="Customer" id="VIP"></option>
+                        <option value="Staff" id="staff"></option>
+                    </select>
+                </div>
+                <label class="label" id="language"></label>
+                <div class="select" id="id_lang">
+                    <!-- decide the language of the page en - english, sw- swedish, gm - german -->
+                    <select name="languages" id="lang">
+                        <option value="en" id="en"></option>
+                        <option value="sw" id="sw"></option>
+                        <option value="gm" id="gm"></option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <form action="normal">
+            <section class="section">
+                <div class="container">
+                    <!-- <div class="column is-half"> -->
+                    <div class="column field is-one-third">
+                        <p class="control has-icons-left has-icons-right">
+                            <!-- taking input as username form user -->
+                            <input class="input" type="text" id="username" placeholder="Username" required>
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                            <span class="icon is-small is-right">
+                                <i class="fas fa-check"></i>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="column field is-one-third">
+                        <p class="control has-icons-left">
+                            <!-- taking input as password from user -->
+                            <input class="input" type="password" id="password" placeholder="Password" required>
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="column">
+                        <p class="control">
+                            <!-- the button to submit the login form -->
+                            <button class="button is-success" id="login">
+                            </button>
+                        </p>
+                    </div>
+                    <!-- </div> -->
+
+            </section>
+        </form>
+    </div>
+    <!-- <h1 style="margin-top: 2%; margin-left: 7%;">Customer login page</h1> -->
+
+    <script src="dict.js"></script>
+    <script src="language_controller.js"></script>
+    <script src="login_controller.js"></script>
+    <script src="Edited_DBLoaded.js"></script>
+</body>
+
+</html>

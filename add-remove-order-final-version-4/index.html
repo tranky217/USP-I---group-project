@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Management Dashboard</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/icons.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.2.1/dist/chart.min.js"></script>
+</head>
+<body>
+    <div class="dashboard"><!-- Dashboard -->
+        <section class="navigation"><!-- Navigation -->
+            <img src="assets/img/logo-thumbnail.png" alt="InstinctHub Logo" class="logo">
+
+            <div>
+               <a href="index.html"> <span style="cursor: pointer;" class="material-icons-outlined"> dashboard </span></a> 
+               
+               <a href="addCustomer.html"> <span style="cursor: pointer;" class="material-icons-outlined"> trending_up </span> </a>
+               <a >  <span style="cursor: pointer;"  class="material-icons-outlined"> people_alt </span></a>
+               <a>   <span style="cursor: pointer;"  class="material-icons-outlined"> insert_invitation </span> </a>
+               <a>   <span  style="cursor: pointer;" class="material-icons-outlined">settings_suggest</span></a>
+            </div>
+
+            <img src="assets/img/2.jpg" alt="User Image" class="user">
+
+        </section><!-- Navigation End -->
+
+        <section class="main"><!-- Main -->
+            <div class="search"><!-- Search -->
+                <form action="">
+                    <input type="text" name="search" id="searchProject" placeholder="Search Here">
+                    <span class="material-icons-outlined"> search </span>
+                </form>
+
+                <div class="notification">
+                    <span class="material-icons-outlined"> notifications </span>
+                    <span class="material-icons-outlined"> edit </span>
+                </div>
+            </div><!-- Search End -->
+
+            <div class="title">
+                <h1>Tables</h1>
+
+                <label for="projects">Sort By</label>
+                <select name="projects" id="projectFilter">
+                    <option value="">...</option>
+                    <option value="recent">Recent Project</option>
+                    <option value="finished">Finished Project</option>
+                    <option value="ongoing">Ongoing Project</option>
+                    <option value="stalled">Stalled Project</option>
+                </select>
+
+            </div>
+
+
+            <script>
+
+                  const setTable = (TableNo)=>{
+
+                    window.localStorage.setItem('TableNo', TableNo);
+
+
+                  }  
+
+            </script>
+          
+
+            <img src="assets/img/map-show-table-restaurant-vector-layout-map-show-table-restaurant-vector-173389315.jpg" usemap="#image-map">
+
+<map name="image-map"
+
+
+
+>
+    <area target="" alt="" title="" href="addCustomerOrders.html" coords="19,645,208,861" shape="rect"
+    onclick="setTable(5)"
+    >
+    <area target="" alt="" title="" href="addCustomerOrders.html" coords="457,603,653,830" shape="rect"
+    onclick="setTable(6)"
+    >
+    <area target="" alt="" title="" href="addCustomerOrders.html" coords="21,383,212,614" shape="rect"
+    onclick="setTable(3)"
+    >
+    <area target="" alt="" title="" href="addCustomerOrders.html" coords="15,129,210,365" shape="rect"
+    onclick="setTable(1)"
+
+    >
+    <area target="" alt="" title="" href="addCustomerOrders.html" coords="452,355,656,575" shape="rect"
+    onclick="setTable(4)"
+
+    >
+    <area target="" alt="" title="" href="addCustomerOrders.html" coords="452,101,656,331" shape="rect"
+    onclick="setTable(2)"
+
+    >
+</map>
+
+        </section><!-- Main End -->
+
+        
+    </div><!-- Dashboard End-->
+    
+    <script src="assets/js/script.js" > </script>
+</body>
+</html>
