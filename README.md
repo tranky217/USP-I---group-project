@@ -5,7 +5,7 @@ The project designs a web-base platform. It uses HTML, CSS, and Javascript.
 The data was stored in Json file, and the project had not work on database.
 
 Contributer:
-Pawan-po
-tranky217
-ErikRabe
-onorgren
+Pawan-po,
+tranky217,
+ErikRabe,
+onorgren.
